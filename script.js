@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const trollInput = document.getElementById('troll-input');
     const errorMessage = document.getElementById('error-message');
     const trollTextElement = document.getElementById('troll-text');
-    const videoElement = document.getElementById('error-video');
+    const errorVideo = document.getElementById('error-video');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -31,25 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             startScreen.classList.add('hidden');
             intersectContainer.classList.remove('hidden');
             errorMessage.style.display = 'none'; // Ukryj komunikat o błędzie
+            errorVideo.style.display = 'none'; // Ukryj wideo
         } else {
-            // Pokaż wideo zamiast komunikatu o błędnej odpowiedzi
-            errorMessage.style.display = 'none'; // Ukryj czerwony tekst
-            videoElement.style.display = 'block'; // Pokaż wideo
-            videoElement.play();
-
-            // Ukryj pozostałe elementy, gdy wideo jest odtwarzane
-            startScreen.style.display = 'none'; // Ukryj ekran startowy
-
-            // Przełączenie wideo w tryb pełnoekranowy
-            if (videoElement.requestFullscreen) {
-                videoElement.requestFullscreen();
-            } else if (videoElement.mozRequestFullScreen) { // Firefox
-                videoElement.mozRequestFullScreen();
-            } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari i Opera
-                videoElement.webkitRequestFullscreen();
-            } else if (videoElement.msRequestFullscreen) { // IE/Edge
-                videoElement.msRequestFullscreen();
-            }
+            // Pokaż komunikat o błędnej odpowiedzi i wideo
+            errorMessage.style.display = 'block';
+            errorVideo.style.display = 'block'; // Pokaż wideo
+            errorVideo.play(); // Odtwórz wideo
         }
     }
 
