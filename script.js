@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentIndex < trollText.length) {
             trollTextElement.textContent += trollText.charAt(currentIndex);
             currentIndex++;
-            setTimeout(animateText, 250); // Zmieniono czas na 250 ms (0,25 sekundy)
+            setTimeout(animateText, 250); // Czas na 250 ms (0,25 sekundy)
         }
     }
 
@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
             errorMessage.style.display = 'block';
             errorVideo.style.display = 'block'; // Pokaż wideo
             errorVideo.play(); // Odtwórz wideo
+            // Odtwarzanie wideo na pełnym ekranie
+            if (errorVideo.requestFullscreen) {
+                errorVideo.requestFullscreen();
+            } else if (errorVideo.mozRequestFullScreen) { // Firefox
+                errorVideo.mozRequestFullScreen();
+            } else if (errorVideo.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                errorVideo.webkitRequestFullscreen();
+            } else if (errorVideo.msRequestFullscreen) { // IE/Edge
+                errorVideo.msRequestFullscreen();
+            }
         }
     }
 
