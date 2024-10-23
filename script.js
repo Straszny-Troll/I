@@ -38,9 +38,25 @@ document.addEventListener('DOMContentLoaded', function() {
             videoElement.play();
 
             // Ukryj pozostałe elementy, gdy wideo jest odtwarzane
-            startScreen.style.display = 'none';
+            startScreen.style.display = 'none'; // Ukryj ekran startowy
 
             // Przełączenie wideo w tryb pełnoekranowy
             if (videoElement.requestFullscreen) {
                 videoElement.requestFullscreen();
-            } else 
+            } else if (videoElement.mozRequestFullScreen) { // Firefox
+                videoElement.mozRequestFullScreen();
+            } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari i Opera
+                videoElement.webkitRequestFullscreen();
+            } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                videoElement.msRequestFullscreen();
+            }
+        }
+    }
+
+    // Nasłuchuj naciśnięcia klawisza Enter w polu tekstowym
+    trollInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            checkAnswer();
+        }
+    });
+});
