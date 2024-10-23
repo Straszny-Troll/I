@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 10%;
+}
+
+h1 {
+    font-size: 4em;
+    text-transform: uppercase;
+}
+
+#troll-input {
+    font-size: 4em; /* Taka sama wielkość jak tekst h1 */
+    color: white; /* Tekst wpisywany jest biały */
+    background-color: transparent; /* Pole jest niewidoczne */
+    border: none; /* Bez obramowania */
+    text-align: center;
+    outline: none; /* Bez podkreślenia, gdy zaznaczone */
+    width: 100%; /* Szerokość na całą stronę */
+    caret-color: white; /* Biały kursor */
+}
+
+#troll-input::placeholder {
+    color: transparent; /* Ukrywa placeholder */
+}
+
+#error-message {
+    font-size: 2em;
+}
+
+.hidden {
+    display: none;
+}
