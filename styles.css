@@ -1,3 +1,4 @@
+/* Ogólny styl dla całej strony */
 body {
     background-color: black;
     color: white;
@@ -6,11 +7,13 @@ body {
     margin-top: 10%;
 }
 
+/* Styl dla głównego napisu */
 h1 {
     font-size: 4em;
     text-transform: uppercase;
 }
 
+/* Pole tekstowe (do wpisywania odpowiedzi) */
 #troll-input {
     font-size: 4em; /* Taka sama wielkość jak tekst h1 */
     color: white; /* Tekst wpisywany jest biały */
@@ -22,14 +25,36 @@ h1 {
     caret-color: white; /* Biały kursor */
 }
 
+/* Ukrycie placeholdera */
 #troll-input::placeholder {
-    color: transparent; /* Ukrywa placeholder */
+    color: transparent;
 }
 
+/* Styl komunikatu błędu */
 #error-message {
     font-size: 2em;
+    color: red;
 }
 
+/* Ukrycie elementów, gdy wideo lub inne elementy są w grze */
 .hidden {
+    display: none;
+}
+
+/* Styl dla wideo, domyślnie ukrytego */
+#error-video {
+    display: none; /* Wideo ukryte domyślnie */
+    width: 100%;
+    height: 100%;
+    position: fixed; /* Ustawienie wideo na całą stronę */
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Wideo ma najwyższy priorytet wyświetlania */
+    background-color: black;
+}
+
+/* Ukrycie ekranu startowego i symulacji Intersect */
+#start-screen.hidden,
+.intersect-container.hidden {
     display: none;
 }
