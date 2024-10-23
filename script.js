@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const trollInput = document.getElementById('troll-input');
     const errorMessage = document.getElementById('error-message');
     const trollTextElement = document.getElementById('troll-text');
+    const videoContainer = document.getElementById('video-container');
+    const errorVideo = document.getElementById('error-video');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -30,9 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
             startScreen.classList.add('hidden');
             intersectContainer.classList.remove('hidden');
             errorMessage.style.display = 'none'; // Ukryj komunikat o błędzie
+            videoContainer.classList.add('hidden'); // Ukryj wideo
         } else {
-            // Pokaż komunikat o błędnej odpowiedzi
-            errorMessage.style.display = 'block';
+            // Ukryj komunikat o błędzie i pokaż wideo
+            errorMessage.style.display = 'none';
+            videoContainer.classList.remove('hidden');
+            errorVideo.play(); // Odtwórz wideo
         }
     }
 
