@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const trollInput = document.getElementById('troll-input');
     const trollTextElement = document.getElementById('troll-text');
     const videoElement = document.getElementById('error-video');
+    const loadingContainer = document.getElementById('loading-container');
+    const loadingBar = document.getElementById('loading-bar');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -32,9 +34,21 @@ document.addEventListener('DOMContentLoaded', function () {
             videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
             videoElement.style.display = 'none'; // Ukryj wideo
         } else {
-            // Pokaż tylko wideo po błędnej odpowiedzi
-            videoElement.style.display = 'block'; // Pokaż wideo
-            videoElement.play(); // Odtwórz wideo
+            // Pokaż pasek ładowania
+            loadingContainer.classList.remove('hidden');
+            loadingBar.style.width = '0'; // Zresetuj pasek ładowania
+
+            // Animuj pasek ładowania
+            setTimeout(function() {
+                loadingBar.style.width = '100%'; // Rozszerz pasek do 100%
+
+                // Gdy ładowanie się zakończy, ukryj pasek i odtwórz wideo
+                setTimeout(function() {
+                    loadingContainer.classList.add('hidden');
+                    videoElement.style.display = 'block'; // Pokaż wideo
+                    videoElement.play(); // Odtwórz wideo
+                }, 5000); // Czas trwania ładowania (5 sekund)
+            }, 100);
         }
     }
 
