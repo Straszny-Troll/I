@@ -10,14 +10,14 @@
     <div id="start-screen">
         <h1 id="troll-text"></h1>
         <input type="text" id="troll-input" placeholder="Wpisz odpowiedź">
-        <div id="loading-container" style="display: none;">
-            <div id="loading-bar"></div>
-            <span id="loading-percentage">0%</span>
-        </div>
         <video id="error-video" width="100%" height="auto" controls style="display: none;">
             <source src="Sequence 1.mp4" type="video/mp4">
             Twoja przeglądarka nie obsługuje formatu wideo.
         </video>
+        <div id="loading-bar" class="hidden">
+            <div id="progress"></div>
+            <span id="loading-text">0%</span>
+        </div>
     </div>
 
     <div class="intersect-container hidden">
