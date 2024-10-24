@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     const startScreen = document.getElementById('start-screen');
-    const intersectContainer = document.querySelector('.intersect-container');
     const trollInput = document.getElementById('troll-input');
     const trollTextElement = document.getElementById('troll-text');
     const videoElement = document.getElementById('error-video');
     const loadingContainer = document.getElementById('loading-container');
     const loadingBar = document.getElementById('loading-bar');
+    const loadingText = document.getElementById('loading-text');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -28,27 +28,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const correctAnswer = "Zaatakuj trolla paskudnym nożem";
 
         if (userInput === correctAnswer) {
-            // Jeśli odpowiedź jest poprawna, ukryj startowy ekran i pokaż Intersect
             startScreen.classList.add('hidden');
-            intersectContainer.classList.remove('hidden');
-            videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
-            videoElement.style.display = 'none'; // Ukryj wideo
+            videoElement.pause();
+            videoElement.style.display = 'none';
         } else {
-            // Pokaż pasek ładowania
             loadingContainer.classList.remove('hidden');
-            loadingBar.style.width = '0'; // Zresetuj pasek ładowania
+            loadingBar.style.width = '0';
 
-            // Animuj pasek ładowania
-            setTimeout(function() {
-                loadingBar.style.width = '100%'; // Rozszerz pasek do 100%
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 1;
+                loadingBar.style.width = `${progress}%`;
+                loadingText.textContent = `${progress}%`;
 
-                // Gdy ładowanie się zakończy, ukryj pasek i odtwórz wideo
-                setTimeout(function() {
-                    loadingContainer.classList.add('hidden');
-                    videoElement.style.display = 'block'; // Pokaż wideo
-                    videoElement.play(); // Odtwórz wideo
-                }, 5000); // Czas trwania ładowania (5 sekund)
-            }, 100);
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingContainer.classList.add('hidden');
+                        videoElement.style.display = 'block';
+                        videoElement.play();
+                    }, 2000); // Czekaj 2 sekundy przed pokazaniem wideo
+                }
+            }, 50); // Co 50ms, ładuj pasek
         }
     }
 
