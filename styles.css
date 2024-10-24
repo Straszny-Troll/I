@@ -26,22 +26,22 @@ h1 {
     color: transparent;
 }
 
-#error-message {
-    font-size: 2em;
-}
-
 .hidden {
     display: none;
 }
 
-/* Styl wideo, aby zajmowało całą kartę przeglądarki */
+/* Styl wideo */
 #error-video {
+    width: 100vw; /* Pełna szerokość ekranu */
+    height: auto;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover; /* Dopasowanie wideo */
-    display: none; /* Na początku wideo jest ukryte */
-    z-index: 9999; /* Na wierzchu wszystkiego */
+    z-index: 9999;
+    background-color: black; /* Czarny ekran w tle */
+}
+
+#error-video:fullscreen {
+    width: 100%;
+    height: 100%;
 }
