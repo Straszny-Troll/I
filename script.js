@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             videoElement.pause();
             videoElement.style.display = 'none';
         } else {
+            startScreen.style.display = 'none';
             loadingContainer.classList.remove('hidden');
             loadingBar.style.width = '0';
 
