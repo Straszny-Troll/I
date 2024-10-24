@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
             videoElement.style.display = 'none'; // Ukryj wideo
         } else {
-            // Ukryj wszystko inne i pokaż tylko wideo
-            startScreen.style.display = 'none'; // Ukryj ekran startowy
+            // Pokaż tylko wideo po błędnej odpowiedzi
             videoElement.style.display = 'block'; // Pokaż wideo
             videoElement.play(); // Odtwórz wideo
         }
