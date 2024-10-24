@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const startScreen = document.getElementById('start-screen');
     const intersectContainer = document.querySelector('.intersect-container');
     const trollInput = document.getElementById('troll-input');
-    const errorMessage = document.getElementById('error-message');
     const trollTextElement = document.getElementById('troll-text');
     const videoElement = document.getElementById('error-video');
 
@@ -14,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentIndex < trollText.length) {
             trollTextElement.textContent += trollText.charAt(currentIndex);
             currentIndex++;
-            setTimeout(animateText, 250); // Zmieniono czas na 250 ms (0,25 sekundy)
+            setTimeout(animateText, 250); // Czas animacji tekstu
         }
     }
 
@@ -27,17 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const correctAnswer = "Zaatakuj trolla paskudnym nożem";
 
         if (userInput === correctAnswer) {
-            // Ukryj ekran startowy i pokaż Intersect, jeśli odpowiedź jest poprawna
+            // Jeśli odpowiedź jest poprawna, ukryj startowy ekran i pokaż Intersect
             startScreen.classList.add('hidden');
             intersectContainer.classList.remove('hidden');
-            errorMessage.style.display = 'none'; // Ukryj komunikat o błędzie
             videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
-            videoElement.style.display = 'none'; // Ukryj wideo, jeśli było wcześniej widoczne
+            videoElement.style.display = 'none'; // Ukryj wideo
         } else {
-            // Pokaż wideo zamiast komunikatu o błędnej odpowiedzi
-            errorMessage.style.display = 'none'; // Ukryj czerwony tekst
+            // Ukryj wszystko inne i pokaż tylko wideo
+            startScreen.style.display = 'none'; // Ukryj ekran startowy
             videoElement.style.display = 'block'; // Pokaż wideo
-            videoElement.play(); // Odtwarzaj wideo
+            videoElement.play(); // Odtwórz wideo
         }
     }
 
