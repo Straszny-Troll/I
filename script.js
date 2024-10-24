@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const trollInput = document.getElementById('troll-input');
     const trollTextElement = document.getElementById('troll-text');
     const videoElement = document.getElementById('error-video');
-    const loadingContainer = document.getElementById('loading-container');
     const loadingBar = document.getElementById('loading-bar');
-    const loadingPercentage = document.getElementById('loading-percentage');
+    const progress = document.getElementById('progress');
+    const loadingText = document.getElementById('loading-text');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentIndex < trollText.length) {
             trollTextElement.textContent += trollText.charAt(currentIndex);
             currentIndex++;
-            setTimeout(animateText, 250); // Czas animacji tekstu
+            setTimeout(animateText, 250);
         }
     }
 
@@ -35,25 +35,26 @@ document.addEventListener('DOMContentLoaded', function () {
             videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
             videoElement.style.display = 'none'; // Ukryj wideo
         } else {
-            // Ukryj ekran startowy i pokaż pasek ładowania
+            // Pokazanie paska ładowania
             startScreen.style.display = 'none'; // Ukryj ekran startowy
-            loadingContainer.style.display = 'block'; // Pokaż pasek ładowania
+            loadingBar.classList.remove('hidden'); // Pokaż pasek ładowania
 
-            let loadingProgress = 0;
-            const loadingInterval = setInterval(() => {
-                loadingProgress += 10;
-                loadingBar.style.width = loadingProgress + '%';
-                loadingPercentage.textContent = loadingProgress + '%';
-
-                if (loadingProgress >= 100) {
-                    clearInterval(loadingInterval);
+            // Ładowanie do 100%
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
                     setTimeout(() => {
-                        loadingContainer.style.display = 'none'; // Ukryj pasek ładowania
+                        loadingBar.classList.add('hidden'); // Ukryj pasek ładowania
                         videoElement.style.display = 'block'; // Pokaż wideo
                         videoElement.play(); // Odtwórz wideo
-                    }, 2000); // Poczekaj 2 sekundy przed pokazaniem wideo
+                    }, 2000); // Opóźnienie przed pokazaniem wideo
+                } else {
+                    width++;
+                    progress.style.width = width + '%';
+                    loadingText.textContent = width + '%';
                 }
-            }, 200); // Czas interwału dla paska ładowania
+            }, 50); // Czas między wzrostem procentów
         }
     }
 
