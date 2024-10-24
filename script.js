@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const trollInput = document.getElementById('troll-input');
     const errorMessage = document.getElementById('error-message');
     const trollTextElement = document.getElementById('troll-text');
-    const errorVideo = document.getElementById('error-video');
+    const errorVideo = document.getElementById('error-video'); // Zmieniono na pobranie wideo
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentIndex < trollText.length) {
             trollTextElement.textContent += trollText.charAt(currentIndex);
             currentIndex++;
-            setTimeout(animateText, 250); // Czas na 250 ms (0,25 sekundy)
+            setTimeout(animateText, 250); 
         }
     }
 
@@ -27,26 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const correctAnswer = "Zaatakuj trolla paskudnym nożem";
 
         if (userInput === correctAnswer) {
-            // Ukryj ekran startowy i pokaż Intersect, jeśli odpowiedź jest poprawna
+            // Ukryj ekran startowy i pokaż Intersect
             startScreen.classList.add('hidden');
             intersectContainer.classList.remove('hidden');
-            errorMessage.style.display = 'none'; // Ukryj komunikat o błędzie
-            errorVideo.style.display = 'none'; // Ukryj wideo
+            errorMessage.style.display = 'none'; 
         } else {
-            // Pokaż komunikat o błędnej odpowiedzi i wideo
-            errorMessage.style.display = 'block';
-            errorVideo.style.display = 'block'; // Pokaż wideo
+            // Ukryj tekst błędu, pokaż wideo na całą kartę
+            errorMessage.style.display = 'none';
+            errorVideo.classList.remove('hidden');
             errorVideo.play(); // Odtwórz wideo
-            // Odtwarzanie wideo na pełnym ekranie
-            if (errorVideo.requestFullscreen) {
-                errorVideo.requestFullscreen();
-            } else if (errorVideo.mozRequestFullScreen) { // Firefox
-                errorVideo.mozRequestFullScreen();
-            } else if (errorVideo.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-                errorVideo.webkitRequestFullscreen();
-            } else if (errorVideo.msRequestFullscreen) { // IE/Edge
-                errorVideo.msRequestFullscreen();
-            }
         }
     }
 
