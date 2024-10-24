@@ -10,20 +10,16 @@
     <div id="start-screen">
         <h1 id="troll-text"></h1>
         <input type="text" id="troll-input" placeholder="Wpisz odpowiedź">
+        <video id="error-video" width="100%" height="auto" controls style="display: none;">
+            <source src="Sequence 1.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje formatu wideo.
+        </video>
         <p id="error-message" style="color: red; display: none;">Niepoprawna odpowiedź, spróbuj ponownie.</p>
     </div>
 
     <div class="intersect-container hidden">
         <h1>Witamy w Intersect!</h1>
         <p>To symulacja Intersectu inspirowana serialem *Chuck*.</p>
-    </div>
-
-    <!-- Wideo dla błędnej odpowiedzi -->
-    <div id="video-container" class="hidden">
-        <video id="error-video" controls autoplay playsinline>
-            <source src="Sequence 1.mp4" type="video/mp4">
-            Twoja przeglądarka nie obsługuje wideo.
-        </video>
     </div>
 
     <script src="script.js"></script>
