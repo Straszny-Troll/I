@@ -10,13 +10,12 @@
     <div id="start-screen">
         <h1 id="troll-text"></h1>
         <input type="text" id="troll-input" placeholder="Wpisz odpowiedź">
-        <video id="error-video" width="100%" height="auto" controls style="display: none;">
-            <source src="Sequence 1.mp4" type="video/mp4">
-            Twoja przeglądarka nie obsługuje formatu wideo.
-        </video>
-        <div id="loading-bar" class="hidden">
+    </div>
+
+    <div id="loading-container" class="hidden">
+        <div id="loading-bar">
             <div id="progress"></div>
-            <span id="loading-text">0%</span>
+            <span id="percentage">0%</span>
         </div>
     </div>
 
@@ -24,6 +23,11 @@
         <h1>Witamy w Intersect!</h1>
         <p>To symulacja Intersectu inspirowana serialem *Chuck*.</p>
     </div>
+
+    <video id="error-video" width="100%" height="auto" controls style="display: none;">
+        <source src="Sequence 1.mp4" type="video/mp4">
+        Twoja przeglądarka nie obsługuje formatu wideo.
+    </video>
 
     <script src="script.js"></script>
 </body>
