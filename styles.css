@@ -34,41 +34,30 @@ h1 {
     display: none;
 }
 
-/* Styl ładowania */
-#loading-container {
-    margin: 20px auto;
-    width: 80%;
-    height: 30px;
-    background-color: gray;
-    position: relative;
-}
-
+/* Styl dla paska ładowania */
 #loading-bar {
-    height: 100%;
-    width: 0%;
-    background-color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#loading-percentage {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 5px;
-    font-size: 1.2em;
-    color: white;
-}
-
-/* Styl wideo, aby zajmowało całą kartę przeglądarki */
-#error-video {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover; /* Dopasowanie wideo */
-    margin: 0; /* Upewnij się, że nie ma marginesów */
-    padding: 0; /* Upewnij się, że nie ma wypełnień */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: gray;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 30px;
+    width: 0;
+    background-color: white;
+    transition: width 0.1s;
+}
+
+#loading-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 5px;
+    color: black;
+    font-weight: bold;
 }
