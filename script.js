@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         loadingContainer.classList.add('hidden');
                         videoElement.style.display = 'block';
                         videoElement.play();
-                    }, 2000); // Czekaj 2 sekundy przed pokazaniem wideo
+                    }, 0); // Pasek zniknie od razu po osiągnięciu 100%
                 }
             }, 50); // Co 50ms, ładuj pasek
         }
