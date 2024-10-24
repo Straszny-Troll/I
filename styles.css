@@ -1,4 +1,3 @@
-/* Ogólny styl dla całej strony */
 body {
     background-color: black;
     color: white;
@@ -7,54 +6,37 @@ body {
     margin-top: 10%;
 }
 
-/* Styl dla głównego napisu */
 h1 {
     font-size: 4em;
     text-transform: uppercase;
 }
 
-/* Pole tekstowe (do wpisywania odpowiedzi) */
 #troll-input {
-    font-size: 4em; /* Taka sama wielkość jak tekst h1 */
-    color: white; /* Tekst wpisywany jest biały */
-    background-color: transparent; /* Pole jest niewidoczne */
-    border: none; /* Bez obramowania */
+    font-size: 4em; 
+    color: white;
+    background-color: transparent;
+    border: none;
     text-align: center;
-    outline: none; /* Bez podkreślenia, gdy zaznaczone */
-    width: 100%; /* Szerokość na całą stronę */
-    caret-color: white; /* Biały kursor */
+    outline: none;
+    width: 100%;
+    caret-color: white;
 }
 
-/* Ukrycie placeholdera */
 #troll-input::placeholder {
     color: transparent;
 }
 
-/* Styl komunikatu błędu */
 #error-message {
     font-size: 2em;
-    color: red;
 }
 
-/* Ukrycie elementów, gdy wideo lub inne elementy są w grze */
 .hidden {
     display: none;
 }
 
-/* Styl dla wideo, domyślnie ukrytego */
+/* Dodane dla wideo */
 #error-video {
-    display: none; /* Wideo ukryte domyślnie */
-    width: 100%;
-    height: 100%;
-    position: fixed; /* Ustawienie wideo na całą stronę */
-    top: 0;
-    left: 0;
-    z-index: 9999; /* Wideo ma najwyższy priorytet wyświetlania */
-    background-color: black;
-}
-
-/* Ukrycie ekranu startowego i symulacji Intersect */
-#start-screen.hidden,
-.intersect-container.hidden {
-    display: none;
+    width: 100vw;  /* Szerokość na pełną szerokość karty */
+    height: 100vh; /* Wysokość na pełną wysokość karty */
+    object-fit: cover; /* Dopasowanie wideo */
 }
