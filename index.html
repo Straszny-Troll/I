@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Straszny Troll</title> <!-- Zmieniono tytuł na Straszny Troll -->
+    <title>Straszny Troll</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,16 +11,18 @@
         <h1 id="troll-text"></h1>
         <input type="text" id="troll-input" placeholder="Wpisz odpowiedź">
         <p id="error-message" style="color: red; display: none;">Niepoprawna odpowiedź, spróbuj ponownie.</p>
-        <video id="error-video" class="hidden" width="100%" height="auto">
-            <source src="Sequence 1.mp4" type="video/mp4">
-            Twój przeglądarka nie obsługuje wideo.
-        </video>
     </div>
 
     <div class="intersect-container hidden">
         <h1>Witamy w Intersect!</h1>
         <p>To symulacja Intersectu inspirowana serialem *Chuck*.</p>
     </div>
+
+    <!-- Sekcja wideo dla błędnej odpowiedzi -->
+    <video id="error-video" class="hidden" width="100%" height="auto" controls autoplay muted playsinline>
+        <source src="Sequence 1.mp4" type="video/mp4">
+        Twoja przeglądarka nie obsługuje wideo.
+    </video>
 
     <script src="script.js"></script>
 </body>
