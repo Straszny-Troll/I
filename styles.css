@@ -36,11 +36,12 @@ h1 {
 
 /* Styl wideo, aby zajmowało całą kartę przeglądarki */
 #error-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Umożliwia wideo zajęcie całej dostępnej przestrzeni */
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Dopasowanie wideo */
+    display: none; /* Na początku wideo jest ukryte */
     z-index: 9999; /* Na wierzchu wszystkiego */
 }
