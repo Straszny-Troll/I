@@ -39,32 +39,31 @@ document.addEventListener('DOMContentLoaded', function () {
             startScreen.classList.add('hidden'); // Ukryj ekran startowy
             loadingContainer.classList.remove('hidden'); // Pokaż pasek ładowania
 
-// Animacja paska ładowania
-let progress = 0;
-const interval = setInterval(() => {
-    if (progress < 100) {
-        progress++;
-        progressBar.style.width = progress + '%';
-        percentageDisplay.textContent = progress + '%';
-    } else {
-        clearInterval(interval);
-        loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
-        videoElement.style.display = 'block'; // Pokaż wideo
-        videoElement.play(); // Odtwórz wideo
+            // Animacja paska ładowania
+            let progress = 0;
+            const interval = setInterval(() => {
+                if (progress < 100) {
+                    progress++;
+                    progressBar.style.width = progress + '%';
+                    percentageDisplay.textContent = progress + '%';
+                } else {
+                    clearInterval(interval);
+                    loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
+                    videoElement.style.display = 'block'; // Pokaż wideo
+                    videoElement.play(); // Odtwórz wideo
 
-        // Przejdź do pełnoekranowego odtwarzania
-        if (videoElement.requestFullscreen) {
-            videoElement.requestFullscreen();
-        } else if (videoElement.mozRequestFullScreen) { // Firefox
-            videoElement.mozRequestFullScreen();
-        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari i Opera
-            videoElement.webkitRequestFullscreen();
-        } else if (videoElement.msRequestFullscreen) { // Internet Explorer/Edge
-            videoElement.msRequestFullscreen();
-        }
-    }
-}, 50); // Prędkość ładowania
-
+                    // Przejdź do pełnoekranowego odtwarzania
+                    if (videoElement.requestFullscreen) {
+                        videoElement.requestFullscreen();
+                    } else if (videoElement.mozRequestFullScreen) { // Firefox
+                        videoElement.mozRequestFullScreen();
+                    } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari i Opera
+                        videoElement.webkitRequestFullscreen();
+                    } else if (videoElement.msRequestFullscreen) { // Internet Explorer/Edge
+                        videoElement.msRequestFullscreen();
+                    }
+                }
+            }, 50); // Prędkość ładowania
         }
     }
 
