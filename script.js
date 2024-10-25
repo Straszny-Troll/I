@@ -49,10 +49,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     clearInterval(interval);
                     loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
-                    videoElement.style.display = 'block'; // Pokaż wideo
-                    videoElement.play(); // Odtwórz wideo
+                    playVideoFullscreen(); // Odtwórz wideo na pełnym ekranie
                 }
             }, 50); // Prędkość ładowania
+        }
+    }
+
+    // Funkcja do odtwarzania wideo na pełnym ekranie
+    function playVideoFullscreen() {
+        videoElement.style.display = 'block'; // Pokaż wideo
+        videoElement.play(); // Odtwórz wideo
+
+        // Uruchom pełny ekran
+        if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen();
+        } else if (videoElement.mozRequestFullScreen) { // Firefox
+            videoElement.mozRequestFullScreen();
+        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            videoElement.webkitRequestFullscreen();
+        } else if (videoElement.msRequestFullscreen) { // Internet Explorer/Edge
+            videoElement.msRequestFullscreen();
         }
     }
 
