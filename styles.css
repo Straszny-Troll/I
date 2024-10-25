@@ -55,6 +55,24 @@ h1 {
 }
 
 #percentage {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
     color: white;
-    margin-bottom: 5px; /* Odstęp między procentami a paskiem ładowania */
+}
+
+/* Neonowy, migający napis "INICJALIZACJA" */
+#initializing-text {
+    color: #FF0000; /* Czerwony neon */
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: blink 1s infinite; /* Animacja migania */
+}
+
+/* Definicja animacji migania */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
