@@ -49,24 +49,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     clearInterval(interval);
                     loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
-                    launchFullScreen(videoElement); // Uruchom pełnoekranowy tryb
                     videoElement.style.display = 'block'; // Pokaż wideo
+
+                    // Sprawdź, czy przeglądarka obsługuje pełny ekran
+                    if (videoElement.requestFullscreen) {
+                        videoElement.requestFullscreen(); // Uruchom pełnoekranowy tryb
+                    } else if (videoElement.mozRequestFullScreen) { // Firefox
+                        videoElement.mozRequestFullScreen();
+                    } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                        videoElement.webkitRequestFullscreen();
+                    } else if (videoElement.msRequestFullscreen) { // Edge/IE
+                        videoElement.msRequestFullscreen();
+                    }
+
                     videoElement.play(); // Odtwórz wideo
                 }
             }, 50); // Prędkość ładowania
-        }
-    }
-
-    // Funkcja do uruchomienia pełnoekranowego trybu
-    function launchFullScreen(element) {
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.mozRequestFullScreen) { // Firefox
-            element.mozRequestFullScreen();
-        } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) { // IE/Edge
-            element.msRequestFullscreen();
         }
     }
 
