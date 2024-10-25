@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const trollInput = document.getElementById('troll-input');
     const trollTextElement = document.getElementById('troll-text');
     const videoElement = document.getElementById('error-video');
+    const downloadButton = document.getElementById('download-button');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -50,19 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     clearInterval(interval);
                     loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
                     videoElement.style.display = 'block'; // Pokaż wideo
-
-                    // Sprawdź, czy przeglądarka obsługuje pełny ekran
-                    if (videoElement.requestFullscreen) {
-                        videoElement.requestFullscreen(); // Uruchom pełnoekranowy tryb
-                    } else if (videoElement.mozRequestFullScreen) { // Firefox
-                        videoElement.mozRequestFullScreen();
-                    } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                        videoElement.webkitRequestFullscreen();
-                    } else if (videoElement.msRequestFullscreen) { // Edge/IE
-                        videoElement.msRequestFullscreen();
-                    }
-
-                    videoElement.play(); // Odtwórz wideo
+                    downloadButton.classList.remove('hidden'); // Pokaż przycisk "DOWNLOAD"
                 }
             }, 50); // Prędkość ładowania
         }
@@ -73,5 +62,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.key === 'Enter') {
             checkAnswer();
         }
+    });
+
+    // Dodaj zdarzenie kliknięcia do przycisku "DOWNLOAD"
+    downloadButton.addEventListener('click', function () {
+        if (videoElement.requestFullscreen) {
+            videoElement.requestFullscreen();
+        } else if (videoElement.mozRequestFullScreen) {
+            videoElement.mozRequestFullScreen();
+        } else if (videoElement.webkitRequestFullscreen) {
+            videoElement.webkitRequestFullscreen();
+        } else if (videoElement.msRequestFullscreen) {
+            videoElement.msRequestFullscreen();
+        }
+
+        videoElement.style.display = 'block';
+        videoElement.play();
+        downloadButton.classList.add('hidden'); // Ukryj przycisk po kliknięciu
     });
 });
