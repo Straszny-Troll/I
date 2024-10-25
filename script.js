@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             startScreen.classList.add('hidden'); // Ukryj ekran startowy
             loadingContainer.classList.remove('hidden'); // Pokaż pasek ładowania
 
-            // Animacja paska ładowania
+// Animacja paska ładowania
 let progress = 0;
 const interval = setInterval(() => {
     if (progress < 100) {
@@ -64,6 +64,7 @@ const interval = setInterval(() => {
         }
     }
 }, 50); // Prędkość ładowania
+
         }
     }
 
