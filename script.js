@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const intersectContainer = document.querySelector('.intersect-container');
     const trollInput = document.getElementById('troll-input');
     const trollTextElement = document.getElementById('troll-text');
-    const messageScreen = document.getElementById('message-screen');
+    const videoElement = document.getElementById('error-video');
 
     const trollText = "Straszny troll podnosi swój miecz";
     let currentIndex = 0;
@@ -29,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const correctAnswer = "Zaatakuj trolla paskudnym nożem";
 
         if (userInput === correctAnswer) {
+            // Jeśli odpowiedź jest poprawna, ukryj startowy ekran i pokaż Intersect
             startScreen.classList.add('hidden');
             intersectContainer.classList.remove('hidden');
+            videoElement.pause(); // Zatrzymaj wideo, jeśli wcześniej odtwarzane
+            videoElement.style.display = 'none'; // Ukryj wideo
         } else {
-            startScreen.classList.add('hidden');
-            loadingContainer.classList.remove('hidden');
+            // Pokaż pasek ładowania
+            startScreen.classList.add('hidden'); // Ukryj ekran startowy
+            loadingContainer.classList.remove('hidden'); // Pokaż pasek ładowania
 
+            // Animacja paska ładowania
             let progress = 0;
             const interval = setInterval(() => {
                 if (progress < 100) {
@@ -43,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     percentageDisplay.textContent = progress + '%';
                 } else {
                     clearInterval(interval);
-                    loadingContainer.classList.add('hidden');
-                    messageScreen.classList.remove('hidden'); // Pokaż ekran wiadomości
+                    loadingContainer.classList.add('hidden'); // Ukryj pasek ładowania po osiągnięciu 100%
+                    videoElement.style.display = 'block'; // Pokaż wideo
+                    videoElement.play(); // Odtwórz wideo
                 }
             }, 50); // Prędkość ładowania
         }
