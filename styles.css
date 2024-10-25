@@ -59,17 +59,16 @@ h1 {
     margin-bottom: 5px; /* Odstęp między procentami a paskiem ładowania */
 }
 
-/* Neonowy migający napis "INICJALIZACJA" */
-#initializing-text {
-    color: red; /* Neonowy czerwony */
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 10px;
-    animation: blink 1s infinite; /* Animacja migania */
+#download-button {
+    font-size: 2em; /* Ustal odpowiednią wielkość czcionki */
+    margin-top: 20px; /* Odstęp od paska ładowania */
+    background-color: transparent; /* Przezroczyste tło */
+    color: white; /* Kolor tekstu */
+    border: 2px solid white; /* Obramowanie */
+    padding: 10px 20px; /* Odstępy wewnętrzne */
+    cursor: pointer; /* Wskaźnik na kursorze */
 }
 
-/* Animacja migania */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+#download-button.hidden {
+    display: none; /* Ukryj przycisk, gdy jest to potrzebne */
 }
