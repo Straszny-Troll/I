@@ -3,12 +3,13 @@ body {
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-    margin-top: 0%;
+    margin-top: 10%;
 }
 
 h1 {
     font-size: 4em;
     text-transform: uppercase;
+    margin-top: 10%; /* Dodany margines 10% od góry */
 }
 
 #troll-input {
@@ -56,20 +57,37 @@ h1 {
 
 #percentage {
     color: white;
-    margin-bottom: 5px; /* Odstęp między procentami a paskiem ładowania */
+    margin-bottom: 5px;
 }
 
 /* Neonowy migający napis "INICJALIZACJA" */
 #initializing-text {
-    color: red; /* Neonowy czerwony */
+    color: red;
     font-size: 2em;
     text-align: center;
     margin-bottom: 10px;
-    animation: blink 1s infinite; /* Animacja migania */
+    animation: blink 1s infinite;
 }
 
 /* Animacja migania */
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+/* Styl dla ekranu wiadomości */
+#message-screen {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styl dla elementu wideo z marginesem 0% od góry */
+#error-video {
+    margin-top: 0;
 }
