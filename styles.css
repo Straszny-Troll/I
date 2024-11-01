@@ -89,5 +89,5 @@ h1 {
 
 /* Styl dla elementu wideo z marginesem 0% od góry */
 #error-video {
-    margin-top: 0;
+    margin-top: 0%;
 }
